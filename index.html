@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dear Stranger</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #dbeafe, #f0fdfa);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: #1f2937;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #2563eb;
+      text-align: center;
+    }
+    .quote-box {
+      background-color: white;
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      font-size: 1.1em;
+      text-align: center;
+      white-space: pre-wrap;
+      min-height: 120px;
+      transition: all 0.3s ease;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Dear Stranger, This Is for You</h1>
+
+  <div class="quote-box" id="quoteBox">
+    Click the button to receive something meant for you...
+  </div>
+
+  <button onclick="generateQuote()">Show Me a Message</button>
+
+  <script>
+    const quotes = [
+      "You are beautiful in your own ways.",
+      "If you change the way you look at things, the things you look at change.",
+      "I once loved a flower so much I forgot to water my own.",
+      "There's somebody who loves everything you hate about yourself.",
+      "Be the version of yourself that makes your soul smile.",
+      "Healing is not linear. It's okay to be okay and not okay in the same breath.",
+      "The sun still shines even behind the clouds.",
+      "You are not behind in life. You're on your own timeline.",
+      "There is peace in letting go of what was never yours to hold.",
+      "Breathe. You're doing better than you think.",
+      "You will get there. But right now, here is beautiful.",
+      "You are not too sensitive. You are deeply alive.",
+      "Your soft heart is your strength, not your weakness.",
+      "Even the moon goes through phases, and it’s still whole.",
+      "You don’t need to have it all figured out to move forward.",
+      "Rest is productive. Healing requires rest.",
+      "Growth often feels like breaking first.",
+      "Some chapters are meant to end. That’s how new ones begin.",
+      "You are worthy of the love you give so freely.",
+      "Being kind to yourself is revolutionary.",
+      "Crying doesn’t make you weak. It makes you real.",
+      "Your presence is enough. Your breath is enough.",
+      "Start where you are. Use what you have. Do what you can.",
+      "Progress is progress, no matter how slow.",
+      "You deserve peace without explanation.",
+      "You are not a burden. You are a blessing.",
+      "You have survived every single bad day. You're still here.",
+      "You are allowed to be a masterpiece and a work in progress at the same time.",
+      "Sometimes the most productive thing you can do is rest.",
+      "You are allowed to outgrow people and places.",
+      "If you can’t change it, change the way you think about it.",
+      "Maybe you didn’t get what you wanted because you deserve more.",
+      "Love is beautiful but it’s not everything.",
+      "To be strong is to continue.",
+      "You’re not behind. There’s still time for you to become the person you want to be.",
+      "This body is not mine to waste—it is a gift, sculpted by time, refined.",
+      "You are so worthy of the love you keep giving everyone else.",
+      "The world needs you—not the version stuck in doubt, fear, or comparison, but the real, authentic you who is ready to grow."
+    ];
+
+    let typingTimer;
+    function typeText(text, el, speed = 35) {
+      clearTimeout(typingTimer);
+      el.textContent = "";
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          el.textContent += text[i++];
+          typingTimer = setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    function generateQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      typeText(randomQuote, document.getElementById("quoteBox"));
+    }
+  </script>
+</body>
+</html>
